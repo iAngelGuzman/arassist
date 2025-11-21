@@ -13,32 +13,31 @@
 
     <div id="scanning-overlay">
         <div class="scan-box"></div>
-        <p>Apunta a la Laptop o al Trackpad</p>
+        <p>Apunta al objeto</p>
     </div>
 
     <div id="card-laptop" class="info-card">
-        <h2>💻 Lenovo Ideapad 5</h2>
-        <hr style="border: 0; border-top: 1px solid #ddd;">
-        <div class="spec-row"><span class="label">CPU:</span> <span class="value">Ryzen 5 5500U</span></div>
-        <div class="spec-row"><span class="label">RAM:</span> <span class="value">8 GB</span></div>
-        <button onclick="alert('Manual General PDF')" style="width:100%; margin-top:10px; padding:10px; background:#007bff; color:white; border:none; border-radius:5px;">Ver Ficha Técnica</button>
+        <h2>💻 Laptop Detectada</h2>
+        <div class="spec-row"><span class="label">Modelo:</span> <span class="value">Ideapad 5</span></div>
     </div>
 
     <div id="card-trackpad" class="info-card">
-        <h2>🖱️ Trackpad Precisión</h2>
-        <hr style="border: 0; border-top: 1px solid #ddd;">
-        <div class="spec-row"><span class="label">Tipo:</span> <span class="value">Cristal Multitáctil</span></div>
-        <div class="spec-row"><span class="label">Gestos:</span> <span class="value">Soporta 4 dedos</span></div>
-        <div class="trackpad-tip">💡 Tip: Desliza 3 dedos hacia arriba para ver todas las apps abiertas.</div>
+        <h2>🖱️ Trackpad Detectado</h2>
+        <div class="spec-row"><span class="label">Gesto:</span> <span class="value">Multitáctil</span></div>
     </div>
 
-    <a-scene
-        mindar-image="imageTargetSrc: ./targets.mind; filterMinCF:0.0001; filterBeta: 0.001;" 
+    <div id="zoom-container">
+        <span class="zoom-label">Zoom</span>
+        <input type="range" id="zoom-slider" min="1" max="1" step="0.1" value="1">
+    </div>
+
+    <a-scene 
+        mindar-image="imageTargetSrc: ./targets.mind; uiScanning: #scanning-overlay" 
         color-space="sRGB" 
         renderer="colorManagement: true, physicallyCorrectLights" 
         vr-mode-ui="enabled: false" 
         device-orientation-permission-ui="enabled: false">
-
+        
         <a-camera position="0 0 0" look-controls="enabled: false"></a-camera>
 
         <a-entity id="target-laptop" mindar-image-target="targetIndex: 0">
@@ -48,7 +47,6 @@
         <a-entity id="target-trackpad" mindar-image-target="targetIndex: 1">
             <a-plane color="green" opacity="0.5" height="0.3" width="0.4"></a-plane>
         </a-entity>
-
     </a-scene>
 
     <script src="scripts.js"></script>
