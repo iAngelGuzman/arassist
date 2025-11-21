@@ -31,10 +31,15 @@
         <div class="spec-row"><span class="label">Gesto:</span> <span class="value">Multitáctil</span></div>
     </div>
 
-    <!-- <div id="card-soporte" class="info-soporte">
+    <div id="card-soporte" class="info-card">
         <h2>🖱️ Soporte articulado de pared para TV o Monitor</h2>
         <div class="spec-row"><span class="label">Descripcion:</span> <span class="value">Es una estructura metálica diseñada para fijar una pantalla a la pared de forma segura. Cuenta con un brazo móvil que permite extender, girar e inclinar la televisión para ajustar el ángulo de visión, y una placa frontal con orificios estándar (VESA) donde se atornilla la pantalla.</span></div>
-    </div> -->
+    </div>
+
+    <div id="card-celular" class="info-card">
+        <h2>🖱️ Huawei</h2>
+        <div class="spec-row"><span class="label">Descripcion:</span> <span class="value">Dispositivo movil.</span></div>
+    </div>
 
     <div id="zoom-container">
         <span class="zoom-label">Zoom</span>
@@ -50,15 +55,19 @@
         
         <a-camera position="0 0 0" look-controls="enabled: false"></a-camera>
 
-        <a-entity id="target-soporte" mindar-image-target="targetIndex: 0">
+        <a-entity id="target-celular" mindar-image-target="targetIndex: 0">
+            <a-plane color="yellow" opacity="0.5" height="0.5" width="0.8"></a-plane>
+        </a-entity>
+
+        <a-entity id="target-soporte" mindar-image-target="targetIndex: 1">
             <a-plane color="red" opacity="0.5" height="0.5" width="0.8"></a-plane>
         </a-entity>
 
-        <a-entity id="target-trackpad" mindar-image-target="targetIndex: 1">
+        <a-entity id="target-trackpad" mindar-image-target="targetIndex: 2">
             <a-plane color="green" opacity="0.5" height="0.3" width="0.4"></a-plane>
         </a-entity>
 
-        <a-entity id="target-laptop" mindar-image-target="targetIndex: 2">
+        <a-entity id="target-laptop" mindar-image-target="targetIndex: 3">
             <a-plane color="blue" opacity="0.5" height="0.5" width="0.8"></a-plane>
         </a-entity>
 
