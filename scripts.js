@@ -4,11 +4,17 @@ const laptopCard = document.querySelector('#card-laptop');
 const trackpadTarget = document.querySelector('#target-trackpad');
 const trackpadCard = document.querySelector('#card-trackpad');
 
+const soporteTarget = document.querySelector('#target-soporte');
+const soporteCard = document.querySelector('#card-soporte');
+
 laptopTarget.addEventListener("targetFound", () => { laptopCard.style.display = 'block'; trackpadCard.style.display = 'none'; });
 laptopTarget.addEventListener("targetLost", () => { laptopCard.style.display = 'none'; });
 
 trackpadTarget.addEventListener("targetFound", () => { trackpadCard.style.display = 'block'; laptopCard.style.display = 'none'; });
 trackpadTarget.addEventListener("targetLost", () => { trackpadCard.style.display = 'none'; });
+
+soporteTarget.addEventListener("targetFound", () => { soporteCard.style.display = 'block'; soporteCard.style.display = 'none'; });
+soporteTarget.addEventListener("targetLost", () => { soporteCard.style.display = 'none'; });
 
 // ==========================================
 // 2. LÓGICA DE ZOOM DE CÁMARA
