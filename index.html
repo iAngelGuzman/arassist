@@ -13,21 +13,27 @@
 
     <div id="scanning-overlay">
         <div class="scan-box"></div>
-        <p>Apunta a la foto de referencia<br>(Ej. Logo o Pantalla)</p>
+        <p>Apunta a la Laptop o al Trackpad</p>
     </div>
 
-    <div id="info-card">
+    <div id="card-laptop" class="info-card">
         <h2>💻 Lenovo Ideapad 5</h2>
         <hr style="border: 0; border-top: 1px solid #ddd;">
-        <div class="spec-row"><span class="label">Procesador:</span> <span class="value">AMD Ryzen 5 5500U with Radeon Graphics</span></div>
-        <div class="spec-row"><span class="label">Tarjeta gráfica:</span> <span class="value">AMD Ryzen(TM) Graphics 2GB</span></div>
-        <div class="spec-row"><span class="label">RAM:</span> <span class="value">8 GB Unificada</span></div>
-        <div class="spec-row"><span class="label">Almacenamiento:</span> <span class="value">1 TB SSD</span></div>
-        <button onclick="alert('Abriendo manual...')" style="width:100%; margin-top:10px; padding:10px; background:#007bff; color:white; border:none; border-radius:5px;">Ver Manual PDF</button>
+        <div class="spec-row"><span class="label">CPU:</span> <span class="value">Ryzen 5 5500U</span></div>
+        <div class="spec-row"><span class="label">RAM:</span> <span class="value">8 GB</span></div>
+        <button onclick="alert('Manual General PDF')" style="width:100%; margin-top:10px; padding:10px; background:#007bff; color:white; border:none; border-radius:5px;">Ver Ficha Técnica</button>
+    </div>
+
+    <div id="card-trackpad" class="info-card">
+        <h2>🖱️ Trackpad Precisión</h2>
+        <hr style="border: 0; border-top: 1px solid #ddd;">
+        <div class="spec-row"><span class="label">Tipo:</span> <span class="value">Cristal Multitáctil</span></div>
+        <div class="spec-row"><span class="label">Gestos:</span> <span class="value">Soporta 4 dedos</span></div>
+        <div class="trackpad-tip">💡 Tip: Desliza 3 dedos hacia arriba para ver todas las apps abiertas.</div>
     </div>
 
     <a-scene
-        mindar-image="imageTargetSrc: /targets.mind; filterMinCF:0.0001; filterBeta: 0.001;" 
+        mindar-image="imageTargetSrc: ./targets.mind; filterMinCF:0.0001; filterBeta: 0.001;" 
         color-space="sRGB" 
         renderer="colorManagement: true, physicallyCorrectLights" 
         vr-mode-ui="enabled: false" 
@@ -35,9 +41,14 @@
 
         <a-camera position="0 0 0" look-controls="enabled: false"></a-camera>
 
-        <a-entity id="laptop-target" mindar-image-target="targetIndex: 0">
-            <a-plane color="blue" opacity="0.5" height="1" width="1" rotation="0 0 0"></a-plane>
+        <a-entity id="target-laptop" mindar-image-target="targetIndex: 0">
+            <a-plane color="blue" opacity="0.5" height="0.5" width="0.8"></a-plane>
         </a-entity>
+
+        <a-entity id="target-trackpad" mindar-image-target="targetIndex: 1">
+            <a-plane color="green" opacity="0.5" height="0.3" width="0.4"></a-plane>
+        </a-entity>
+
     </a-scene>
 
     <script src="scripts.js"></script>
