@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="viewport" content="width=device-width, initial-scale=1" />
+    <title>Identificador de Laptop AR</title>
+    
+    <script src="https://aframe.io/releases/1.4.2/aframe.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/mind-ar@1.2.2/dist/mindar-image-aframe.prod.js"></script>
+
+    <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+    <div id="scanning-overlay">
+        <div class="scan-box"></div>
+        <p>Apunta a la foto de referencia<br>(Ej. Logo o Pantalla)</p>
+    </div>
+
+    <div id="info-card">
+        <h2>💻 MacBook Pro M1</h2>
+        <hr style="border: 0; border-top: 1px solid #ddd;">
+        <div class="spec-row"><span class="label">Procesador:</span> <span class="value">AMD Ryzen 5 5500U with Radeon Graphics</span></div>
+        <div class="spec-row"><span class="label">Tarjeta gráfica:</span> <span class="value">AMD Ryzen(TM) Graphics 2GB</span></div>
+        <div class="spec-row"><span class="label">RAM:</span> <span class="value">8 GB Unificada</span></div>
+        <div class="spec-row"><span class="label">Almacenamiento:</span> <span class="value">1 TB SSD</span></div>
+        <button onclick="alert('Abriendo manual...')" style="width:100%; margin-top:10px; padding:10px; background:#007bff; color:white; border:none; border-radius:5px;">Ver Manual PDF</button>
+    </div>
+
+    <a-scene
+        mindar-image="imageTargetSrc: ./targets.mind; filterMinCF:0.0001; filterBeta: 0.001;" 
+        color-space="sRGB" 
+        renderer="colorManagement: true, physicallyCorrectLights" 
+        vr-mode-ui="enabled: false" 
+        device-orientation-permission-ui="enabled: false">
+
+        <a-camera position="0 0 0" look-controls="enabled: false"></a-camera>
+
+        <a-entity id="laptop-target" mindar-image-target="targetIndex: 0">
+            <a-plane color="blue" opacity="0.5" height="1" width="1" rotation="0 0 0"></a-plane>
+        </a-entity>
+    </a-scene>
+
+    <script src="scripts.js"></script>
+</body>
+</html>
